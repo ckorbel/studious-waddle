@@ -15,7 +15,7 @@ console.log('Process', process.argv);
 console.log('Yargs', argv);
 
 if (command === 'add') {
-    console.log('adding new notes');
+    notes.addNote(argv.title, argv.body);
 } else if (command === 'list') {
     console.log('listing all notes');
 } else if (command === 'read') {
@@ -24,5 +24,5 @@ if (command === 'add') {
     console.log('removing note');
 }
 else {
-    console.log('Command not recnognized');
+    console.log('Command not recognized');
 }
