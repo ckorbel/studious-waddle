@@ -1,25 +1,28 @@
 console.log('starting app');
 
+//third party
 const fs = require('fs');
-const os = require('os');
 const _ = require('lodash');
+const yargs = require('yargs');
+
+//created module
 const notes = require('./notes.js');
 
+const argv = yargs.argv;
+var command = process.argv[2];
+console.log('Command: ', command);
+console.log('Process', process.argv);
+console.log('Yargs', argv);
 
-console.log(_.isString(true));
-console.log(_.isString('Chris'));
-console.log(_.uniq([1,'Chris',2,3,1,4,5,'Chris',11]));
-
-
-// let res = notes.add(2, 4);
-// console.log(res);
-
-// let user = os.userInfo();
-
-// fs.appendFile('greetings.txt', 'Hello World', (err) => {
-//     if (err) {
-//         console.log('Unable to write to file');
-//     }
-// });
-
-// fs.appendFileSync('greetings.txt', `Hello ${user.username}! You are ${notes.age}`);
+if (command === 'add') {
+    console.log('adding new notes');
+} else if (command === 'list') {
+    console.log('listing all notes');
+} else if (command === 'read') {
+    console.log('reading note');
+} else if (command === 'remove') {
+    console.log('removing note');
+}
+else {
+    console.log('Command not recnognized');
+}
