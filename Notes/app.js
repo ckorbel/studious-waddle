@@ -1,3 +1,4 @@
+//Third party modules
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
@@ -5,6 +6,7 @@ const yargs = require('yargs');
 //created module
 const notes = require('./notes.js');
 
+//re-used objects:
 const titleOptions = {
     describe: 'Title of note',
     demand: true,
@@ -28,8 +30,8 @@ const argv = yargs
     .command('remove', 'remove a note', {
         title: titleOptions
     })
-    .help()
-    .argv;
+    .help().argv;
+
 var command = argv._[0];
 console.log('Command: ', command);
 console.log('Yargs', argv);
