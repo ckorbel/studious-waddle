@@ -12,16 +12,16 @@ var asyncAdd = (a, b) => {
     });
 };
 
-asyncAdd(5, 17).then((res) => {
+asyncAdd(5, '7').then((res) => {
     console.log('Result: ', res);
     return asyncAdd(res, 33)
 }, (err) => {
     console.log(err);
-}).then((res, err) => {
-    console.log(`Should be 45`);
-}, () => {
-
-})
+}).then((res, err) => {   //chaining promise together
+    console.log(`Should be 45`, res);
+}).catch((err) => {
+    console.log(err);
+});
 
 // var somePromise = new Promise((resolve, reject) => {
 //     setTimeout(() => {
