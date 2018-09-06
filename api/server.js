@@ -64,7 +64,6 @@ app.get('/bad', (req, res) => {
     });
 });
 
-
 //end of route
 
 app.listen(3000, () => {
