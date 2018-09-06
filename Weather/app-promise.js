@@ -18,8 +18,7 @@ var encodedAddress = encodeURIComponent(argv.address);
 var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
 
 
-
-
+//Note: Need to get API key from Google 
 axios.get(geocodeUrl)
     .then((res) => {
         if (res.data.status === 'ZERO_RESULTS') {
