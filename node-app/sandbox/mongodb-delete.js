@@ -29,9 +29,40 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
     // });
 
     //findAndDeleteOne
-    db.collection('Users').findOneAndDelete({ _id: new ObjectID("5b94348d826e933454d25570") }).then(() => {
-        console.log(JSON.stringify(results, undefined, 2));
-    });
+    // db.collection('Users').findOneAndDelete({ _id: new ObjectID("5b94348d826e933454d25570") }).then(() => {
+    //     console.log(JSON.stringify(results, undefined, 2));
+    // });
+
+    //findOneAndUpdate(filter, update, options, callback) <= 4 arguments
+    // db.collection('Todos').findOneAndUpdate({
+    //     _id: new ObjectID('5b94333656c5ba41fca5b6fc')
+    // },
+    //     {
+    //         $set: {
+    //             completed: true
+    //         }
+    //     }, {
+    //         returnOriginal: false
+    //     }).then((result) => {
+    //         console.log(result);
+    //     });
+
+
+    db.collection('Users').findOneAndUpdate({
+        _id: new ObjectID('5b9588c3cc6acb2ef8b4b80e')
+    },
+        {
+            $set: {
+                name: 'Chris'
+            },
+            $inc: {
+                age: 1
+            }
+        }, {
+            returnOriginal: false
+        }).then((result) => {
+            console.log(result);
+        });
 
     // client.close();
 });
