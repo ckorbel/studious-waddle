@@ -33,5 +33,21 @@ describe('Server', () => {
                 .end(done);
         });
     });
+
+    describe('#GET /profiles', () => {
+        it('should return object with info', (done) => {
+            request(app)
+                .get('/profiles')
+                .expect(200)
+                .expect((res) => {
+                    expect(res.body)
+                        .toBeA('object')
+                        .toInclude({
+                            name: 'Delina'
+                        })
+                })
+                .end(done);
+        })
+    });
 });
 

@@ -22,6 +22,14 @@ app.get('/users', (req, res) => {
     ]);
 });
 
+app.get('/profiles', (req, res) => {
+    res.status(200).send({
+        name: 'Delina',
+        height: 'Short',
+        ethnicity: 'Italian'
+    });
+})
+
 app.listen(3000, () => {
     console.log('App is running on port 3000');
 });
