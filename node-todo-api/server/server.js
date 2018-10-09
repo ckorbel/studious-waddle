@@ -3,16 +3,18 @@ var bodyParser = require('body-parser');
 
 
 var { mongoose } = require('./db/mongoose');
-var { Todo } = require('./models/Todo');
-var { User } = require('./models/User');
+var { Todo } = require('./models/todo');
+var { User } = require('./models/user');
 
 
 var app = express();
 
+//middleware for sending json to express app
 app.use(bodyParser.json());
 
 //routes 
 app.post('/todos', (req, res) => {
+    console.log(req.body);
     var todo = new Todo({
         text: req.body.text
     });
@@ -26,4 +28,8 @@ app.post('/todos', (req, res) => {
 
 
 
-app.listen(8080, () => { console.log('running on port 8080') });
+app.listen(8080, () => { 
+    console.log('running on port 8080') 
+});
+
+module.exports = { app };
